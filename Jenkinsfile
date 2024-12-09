@@ -2,29 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                // Checkout the source code for the current branch
-                checkout scm
+                git branch: 'main', url: 'https://github.com/jacob-2244/TOCS-FA21-BCS-044.git'
             }
         }
+
         stage('Build') {
             steps {
-                // Compile the Java program
-                sh 'javac Square.java'
+                sh 'javac index.java'
             }
         }
+
         stage('Run') {
             steps {
-                // Run the Java program to calculate the square of a number
-                sh 'java Square'
+                sh 'java index'
             }
         }
     }
+
     post {
         always {
-            // Clean up workspace
             cleanWs()
         }
     }
 }
+
