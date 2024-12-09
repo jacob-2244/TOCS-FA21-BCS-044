@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'javac index.java'
+                sh 'javac Square.java'
             }
         }
 
         stage('Run') {
             steps {
-                sh 'java index'
+                sh 'java Square'
             }
         }
     }
